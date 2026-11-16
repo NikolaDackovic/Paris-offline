@@ -1,0 +1,29 @@
+{
+  "name": "paris-offline",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "icons": "node scripts/gen-icons.mjs",
+    "test:offline": "node scripts/offline-test.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "0.460.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "@vitejs/plugin-react": "4.3.4",
+    "playwright": "1.49.1",
+    "sharp": "0.33.5",
+    "typescript": "5.6.3",
+    "vite": "5.4.11",
+    "vite-plugin-pwa": "0.21.1",
+    "workbox-window": "7.3.0"
+  }
+}

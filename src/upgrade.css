@@ -1,0 +1,889 @@
+/* ===== Nadogradnja: SOS, aerodrom, rulet, plan B, teme fraza, skica kraja ===== */
+.phrase__pron-lbl {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--bg-2);
+  border-radius: 6px;
+  padding: 1px 6px;
+  margin-right: 4px;
+  vertical-align: 2px;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.topic {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  min-height: 132px;
+  padding: 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: left;
+  transition: transform 0.15s;
+}
+
+.topic:active {
+  transform: scale(0.97);
+}
+
+.topic__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: var(--wine-soft);
+  color: var(--wine);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.topic__title {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.topic__sub {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.topic__count {
+  margin-top: auto;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--wine);
+}
+
+.topic--sos .topic__icon {
+  background: var(--sos-soft);
+  color: var(--sos);
+}
+
+.topic--sos .topic__count {
+  color: var(--sos);
+}
+
+.roulette-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 60px;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #3d6fa3 0%, #24476e 100%);
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  box-shadow: 0 6px 18px rgba(36, 71, 110, 0.28);
+  transition: transform 0.15s;
+}
+
+.roulette-btn--big {
+  min-height: 72px;
+  font-size: 22px;
+}
+
+.roulette-btn:active {
+  transform: scale(0.97);
+}
+
+.roulette-btn:disabled {
+  opacity: 0.45;
+}
+
+.roulette-btn svg {
+  color: #f1d9b5;
+  flex-shrink: 0;
+}
+
+.roulette-btn.is-spinning span {
+  font-family: var(--sans);
+  font-size: 17px;
+  letter-spacing: 0;
+}
+
+.spin {
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.roulette-result__name {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.roulette-result .pills {
+  margin-bottom: 8px;
+}
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 10px;
+  color: var(--wine);
+  font-weight: 600;
+}
+
+.seg {
+  display: flex;
+  gap: 6px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 4px;
+}
+
+.seg__btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink-2);
+  transition: all 0.2s;
+}
+
+.seg__btn.is-active {
+  background: var(--card);
+  color: var(--wine);
+  box-shadow: var(--shadow);
+}
+
+.seg__code {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.seg__name {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.seg--sm .seg__btn {
+  min-height: 40px;
+  font-size: 14px;
+}
+
+.notice {
+  background: var(--warn-soft);
+  border: 1px solid #ecd3a6;
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  color: #4d3708;
+  font-size: 15px;
+}
+
+.notice__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  color: #7a5310;
+}
+
+.notice .bullets {
+  color: #4d3708;
+  margin: 8px 0;
+}
+
+.notice__foot {
+  font-size: 13px;
+  border-top: 1px dashed #e0c48e;
+  padding-top: 8px;
+}
+
+.rer-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  min-width: 38px;
+  padding: 0 6px;
+  border-radius: 8px;
+  background: #5291ce;
+  color: #fff;
+  font-weight: 800;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.route-step__sub--dark {
+  color: var(--ink-2);
+  font-size: 15px;
+}
+
+.route-info--alt {
+  background: var(--bg-2);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  border-top: 0;
+  margin-top: 6px;
+}
+
+.airport-opt__title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.airport-dest {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.airport-dest > svg {
+  color: var(--wine);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.airport-dest__addr {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.howto__intro {
+  margin: 10px 0 12px;
+}
+
+.howto .seg {
+  margin-bottom: 4px;
+}
+
+.howto .route-steps {
+  margin-top: 12px;
+}
+
+.howto__map {
+  margin-top: 10px;
+}
+
+.step-num {
+  color: var(--wine);
+  font-family: var(--serif);
+}
+
+.planb__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.planb__btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 50px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-align: left;
+  transition: all 0.15s;
+}
+
+.planb__emoji {
+  font-size: 20px;
+}
+
+.planb__btn.is-active {
+  border-color: var(--wine);
+  background: var(--wine-soft);
+  color: var(--wine);
+}
+
+.planb__body {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.planb__title {
+  font-family: var(--serif);
+  font-size: 19px;
+  margin-bottom: 4px;
+}
+
+/* SOS ekran */
+.sos-addr {
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: var(--shadow);
+}
+
+.sos-addr__label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c9d6e6;
+}
+
+.sos-addr__text {
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 600;
+  margin: 8px 0 10px;
+  overflow-wrap: anywhere;
+}
+
+.sos-addr__metro {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #e4e9f1;
+}
+
+.sos-addr .btn-copy {
+  background: #fff;
+}
+
+.sos-addr .btn--ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.sos-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.sos-card__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 78px;
+  padding: 16px;
+}
+
+.sos-card__head > span {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sos-card__head strong {
+  font-size: 18px;
+  letter-spacing: 0.04em;
+}
+
+.sos-card__sub {
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.sos-card__head > svg:first-child {
+  flex-shrink: 0;
+}
+
+.sos-card__head > svg:last-child {
+  color: var(--muted);
+  transition: transform 0.2s;
+}
+
+.sos-card.is-open .sos-card__head > svg:last-child {
+  transform: rotate(180deg);
+}
+
+.sos-card--help .sos-card__head > svg:first-child {
+  color: var(--sos);
+}
+
+.sos-card--lost .sos-card__head > svg:first-child {
+  color: var(--wine);
+}
+
+.sos-card--phone .sos-card__head > svg:first-child {
+  color: var(--ink);
+}
+
+.sos-card__body {
+  padding: 0 14px 14px;
+}
+
+.steps-list {
+  margin: 0 0 12px;
+  padding-left: 22px;
+  font-size: 15.5px;
+  color: var(--ink-2);
+}
+
+.steps-list li + li {
+  margin-top: 8px;
+}
+
+.steps-list li::marker {
+  color: var(--wine);
+  font-weight: 700;
+}
+
+.sos-contacts {
+  margin-top: 6px;
+}
+
+/* Skica kraja */
+.hood-map {
+  margin: 0;
+}
+
+.hood-map svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.hood-map figcaption {
+  margin-top: 8px;
+}
+
+.hm-street {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 11px;
+  fill: #8c7b66;
+}
+
+.hm-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--ink);
+}
+
+.hm-home {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 800;
+  fill: var(--wine);
+}
+
+.hm-small {
+  font-family: var(--sans);
+  font-size: 9px;
+  fill: var(--muted);
+}
+
+.hm-dir {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  fill: #4f6b4a;
+}
+
+.hm-m {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 800;
+  fill: #fff;
+}
+
+/* ===== Mapa sa pinovima ===== */
+.pinmap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pinmap__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.15;
+  max-height: 72vh;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: #f6f1e7;
+}
+
+/* Ako visina ograniči okvir, zadrži proporcije (širinu smanji) */
+@supports (aspect-ratio: 1 / 1) {
+  .pinmap__frame {
+    max-width: calc(72vh / 1.15);
+    margin: 0 auto;
+  }
+}
+
+.pinmap__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+
+.pinmap__svg:active {
+  cursor: grabbing;
+}
+
+.pm-pin {
+  cursor: pointer;
+}
+
+.pm-glyph {
+  fill: #fff;
+  font-family: var(--sans);
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.pm-m {
+  fill: #704b1c;
+  font-family: var(--sans);
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.pm-label {
+  font-family: var(--sans);
+  font-weight: 700;
+  fill: var(--ink);
+  paint-order: stroke;
+  stroke: #f6f1e7;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  cursor: pointer;
+}
+
+.pm-label--home {
+  fill: var(--wine);
+  font-weight: 800;
+}
+
+.pm-label--metro {
+  fill: #5b3d17;
+  font-weight: 600;
+}
+
+.pm-street {
+  font-family: var(--serif);
+  font-style: italic;
+  fill: #8c7b66;
+  pointer-events: none;
+}
+
+.pinmap__ctrls {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pm-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(251, 248, 242, 0.95);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+}
+
+.pm-btn:active {
+  background: var(--beige);
+}
+
+.pinmap__badge {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(251, 248, 242, 0.92);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.pinmap__filters {
+  gap: 6px;
+}
+
+.chip--pin {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chip--pin.is-active {
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.chip--pin:not(.is-active) {
+  opacity: 0.5;
+}
+
+.pin-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.pinmap__info {
+  position: relative;
+}
+
+.pinmap__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.pinmap__name {
+  font-family: var(--serif);
+  font-size: 23px;
+  line-height: 1.2;
+  padding-right: 36px;
+}
+
+.pinmap__addr {
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+.pinmap__dist {
+  font-size: 14.5px;
+  color: var(--wine);
+  margin-top: 6px;
+}
+
+.pinmap__hint {
+  text-align: center;
+}
+
+.map-feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px 16px 12px 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s;
+}
+
+.map-feature:active {
+  transform: scale(0.985);
+}
+
+.map-feature__art {
+  width: 96px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #f6f1e7;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.map-feature__art svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.map-feature__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.map-feature__text strong {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.map-feature__text span {
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.map-feature > svg {
+  color: var(--wine);
+  flex-shrink: 0;
+}
+
+/* ===== Dugme „na vrh” ===== */
+.scroll-top {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: calc(var(--tabbar-h) + var(--safe-b) + 16px);
+  z-index: 45;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--wine);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(36, 71, 110, 0.35);
+  opacity: 0;
+  transform: translateY(12px) scale(0.9);
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.scroll-top.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+/* ===== Responsive ===== */
+.quick-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.quick {
+  min-height: 76px;
+  font-size: 12.5px;
+  gap: 5px;
+  padding: 6px 2px;
+  text-align: center;
+}
+
+.main {
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+
+.page-title,
+.card__title,
+.day-head__title,
+.place-card__name,
+.roulette-result__name {
+  overflow-wrap: anywhere;
+}
+
+/* Donja navigacija centrirana na širim ekranima */
+.tabbar {
+  padding-left: max(4px, calc((100vw - 600px) / 2));
+  padding-right: max(4px, calc((100vw - 600px) / 2));
+}
+
+@media (max-width: 359px) {
+  .quick {
+    font-size: 11px;
+    min-height: 68px;
+  }
+  .topic {
+    min-height: 120px;
+    padding: 12px;
+  }
+  .topic__title {
+    font-size: 18px;
+  }
+  .cat-btn__label {
+    font-size: 11px;
+  }
+  .status-btn {
+    font-size: 12.5px;
+  }
+  .sos-addr__text {
+    font-size: 24px;
+  }
+  .roulette-btn--big {
+    font-size: 19px;
+  }
+  .day-bar {
+    grid-template-columns: 80px 1fr 48px;
+  }
+  .map-feature__art {
+    width: 72px;
+  }
+}
+
+@media (min-width: 600px) {
+  .main {
+    max-width: 640px;
+  }
+  .topic-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .planb__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .hero__title {
+    font-size: 76px;
+  }
+}
+
+/* Telefon položen (landscape) */
+@media (orientation: landscape) and (max-height: 500px) {
+  .pinmap__frame {
+    max-height: 85vh;
+    max-width: calc(85vh / 1.15);
+  }
+  .taxi__addr {
+    font-size: clamp(28px, 7vh, 44px);
+  }
+  .taxi__inner {
+    gap: 8px;
+  }
+}
